@@ -1,0 +1,27 @@
+<script id="TodosCard" type="text/html">
+<div class="TodosCard">
+	<header>
+		<input class="new-todo">
+	</header>
+	<section class="items">
+	</section>
+	<footer>
+		<div class="info">some item left</div>
+		<div class="filter-bar">
+			<a class="filter active" href="#/all">All</a>
+			<a class="filter" href="#/active">Active</a>
+			<a class="filter" href="#/completed">Completed</a>
+		</div>
+	</footer>
+</div>
+</script>
+
+<script id="TodosCard-todo-items" type="text/html">
+{{#each items}}
+<div class="todo-item">
+	<div class="ctrl-check"></div>
+	<label>{{subject}}</label>
+</div>
+{{/each}}
+</script>
+

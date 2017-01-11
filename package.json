@@ -1,0 +1,44 @@
+{
+	"name": "mvdom-todoMVC",
+	"version": "1.0.0",
+	"description": "mvDom todoMVC example",
+	"main": "start.js",
+
+	"dependencies": {
+		"mvdom": "*"    
+	},
+
+	"devDependencies": {
+		"async6": "*",
+		"autoprefixer": "*",
+		"browserify": "*",
+		"del": "*",
+		"fs-extra": "*",
+		"gulp": "*",
+		"gulp-concat": "*",
+		"gulp-download": "*",
+		"gulp-ext-replace": "*",
+		"gulp-postcss": "*",
+		"gulp-sourcemaps": "*",
+		"hapi": "*",
+		"hbsp": "*",
+		"inert": "*",
+
+		"path": "*",
+		"postcss-cssnext": "*",
+		"postcss-import": "*",
+		"postcss-mixins": "*",
+		"postcss-nested": "*",
+		"postcss-simple-vars": "*",
+		"postcss-value-parser": "*",
+		"vinyl-buffer": "*",
+		"vinyl-source-stream": "*"
+	},
+
+	"scripts": {
+		"start": "node ./mock-server/start.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	
+	"author": ""
+}

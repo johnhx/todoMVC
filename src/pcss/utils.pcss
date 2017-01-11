@@ -1,0 +1,73 @@
+/* --------- Colors --------- */
+$txt-darkest: #000000;
+$txt-dark: #333333;
+$txt: #555555;
+$txt-light: #777;
+$txt-lighter: #C0C0C0;
+$txt-lightest: #DDDDDD;
+$txt-prime: #509ED4;
+$txt-alert: #DA4F4A;
+$txt-white: #FFFFFF;
+$txt-gray-light: #DBE3EC;
+$txt-gray-light2: #E6E6E6;
+$txt-gray-light3: #E8E8E8;
+
+
+$bdr-darkest: #333333;
+$bdr-darker: #555555;
+$bdr-dark: #999999;
+$bdr: #CECECE;
+$bdr-light: #DDDDDD;
+$bdr-lighter: #EFEFEF;
+$bdr-lightest: #F8F8F8;
+$bdr-prime: #509ED4;
+$bdr-white: #FFFFFF;
+$bdr-blue-light: #6FB6F2;
+$bdr-gray-light3: #E8E8E8;
+$bdr-alert: #DA4F4A;
+
+
+$bkg-darkest: #555555;
+$bkg-darker: #C0C0C0;
+$bkg-dark: #CECECE;
+$bkg: #DDDDDD;
+$bkg-gray: #EEEEEE;
+$bkg-light: #EFEFEF;
+$bkg-lighter: #F8F8F8;
+$bkg-lighter2: #F7F7F7;
+$bkg-lighter3: #F3F7F9;
+$bkg-prime: #509ED4;
+$bkg-active-2: #6BCBE5;
+$bkg-highlighted: #DAF2F8;
+$bkg-white: #FFFFFF;
+$bkg-blue: #4C729E;
+$bkg-blue-light: #6FB6F2;
+$bkg-gray-light3: #E8E8E8;
+
+$ico-darker: #999999;
+$ico-dark: #C0C0C0;
+$ico: #CECECE;
+$ico-prime: #509ED4;
+$ico-alert: #ECA7A4;
+$ico-white: #FFFFFF;
+$ico-light: #DDDDDD;
+$ico-gray-light2: #E6E6E6;
+
+/* --------- /Colors --------- */
+
+/* --------- Mixins --------- */
+@define-mixin fitparent{
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+@define-mixin clearfix{
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+/* --------- Mixins --------- */

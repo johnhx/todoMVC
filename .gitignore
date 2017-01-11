@@ -1,0 +1,24 @@
+# Ignore mac info files
+.DS_Store
+
+# ignore node_modules
+node_modules/
+npm-debug.log
+
+
+# tmp/ can be used for any type of temporary file (build, runtime, ...)
+tmp/
+
+# local/ is where each developer can store their personal notes and data
+local/
+
+# web/js/ and web/css will be compiled from the src/** (never checkin compiled files)
+web/js/
+web/css/
+
+# no matter where, prevent the .map to be checked in
+*.map
+
+# Ignore Sublime Text files
+*.sublime-project
+*.sublime-workspace

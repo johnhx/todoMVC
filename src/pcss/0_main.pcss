@@ -1,0 +1,25 @@
+@import "./utils.pcss";
+
+* {
+	box-sizing: border-box;
+}
+
+html{
+	height: 100%; /* to make everything relative to the window (also need to be set a body) */
+}
+
+body{
+	margin: 0; /* reset any padding/margin to 0, MainView will set the appropriate ones */
+	padding: 0;
+	
+	display: flex; /* We start the flex box at the body */
+	flex-direction: column;
+	
+	width: 100%; /* Make sure the body take the full screen */
+	height: 100%;	
+
+	/* font-family: 'OpenSans'; */
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-smoothing: antialiased;
+}
