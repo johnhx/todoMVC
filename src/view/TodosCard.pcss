@@ -25,9 +25,6 @@
 
 	.items{
 
-
-
-
 		.todo-item{
 			font-size: 24px;
 			color: $txt-light;
@@ -38,11 +35,29 @@
 			flex-direction: row;
 
 			.ctrl-check{
+				position: relative;
 				border: solid 1px #ddd;
 				width: 32px;
 				height: 32px;
 				border-radius: 16px;
 				margin: 15px;
+			}
+
+			/* Note: The "done" state is at the outter most div of this entity representation 
+							 (i.e. at the .todo-item). Given the cascading nature of CSS, this allow to avoid 
+							 redundancy while allow sub elements to be styled approprietaly. 
+			*/ 
+			&.task-done .ctrl-check{
+				background-color: green;
+
+				&::after{
+					content:"";
+					@mixin fitparent;
+					border: solid 2px #fff;
+					border-radius: 16px;
+					margin: 3px;
+				}
+
 			}
 
 			label{
