@@ -25,6 +25,7 @@
 
 	.items{
 
+		/* Outermost : Task */
 		.todo-item{
 			font-size: 24px;
 			color: $txt-light;
@@ -43,27 +44,55 @@
 				margin: 15px;
 			}
 
-			/* Note: The "done" state is at the outter most div of this entity representation 
-							 (i.e. at the .todo-item). Given the cascading nature of CSS, this allow to avoid 
-							 redundancy while allow sub elements to be styled approprietaly. 
-			*/ 
-			&.task-done .ctrl-check{
-				background-color: green;
-
-				&::after{
-					content:"";
-					@mixin fitparent;
-					border: solid 2px #fff;
-					border-radius: 16px;
-					margin: 3px;
-				}
-
-			}
-
 			label{
+				cursor: pointer;
+				width: 100%;
 				display: block;
 				padding: 15px 60px 15px 0px;
 			}
+
+			input{
+				width: 100%;
+				font-size: inherit;
+				font-weight: inherit;
+				letter-spacing: inherit;
+				font-family: inherit;
+				color: inherit;
+				border: none;
+				padding: 11px 60px 15px 0px;
+				outline: none;
+			}
+
+			/* State: When a todo is done */
+			/* Note: The "done" state as other states is at the outermost div of this entity representation 
+							 (i.e. at the .todo-item). Given the cascading nature of CSS, this allow to avoid 
+							 redundancy while allow sub elements to be styled approprietaly. 
+			*/ 
+			&.task-done{
+				.ctrl-check{
+					background-color: green;
+
+					&::after{
+						content:"";
+						@mixin fitparent;
+						border: solid 2px #fff;
+						border-radius: 16px;
+						margin: 3px;
+					}
+				}
+			}
+
+			/* State: Editing (when editing a todod) */
+			&.editing{
+				label{
+					display: none;
+				}
+
+				input{
+					
+				}
+			}
+
 		}
 	}
 
