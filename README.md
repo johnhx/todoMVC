@@ -113,7 +113,7 @@ see code at [/src/view/TodosCard.js](/src/view/TodosCard.js)
 
 So, very easily, when click on the check element, we can get find and extract from the outter most DOM element for Task, the `.id` the `.type` (which will be "Task" as this is what we are matching) and the ".el" which should be the element. The ".el" is the outter most element for this entity, and is where we should store additional entity states as classnames if needed (in this case, we store and use the "task-done" states). 
 
-#### Simple Handlebars helper `{{echo}}``
+#### Simple Handlebars helper `{{echo}}`
 
 One of the thing we often need in a template is to print some text if a property is true (and empty if not). This is specially useful for class names. We have developed the ```{{echo cond val}}``` handlebars, see [/src/js-app/handlebars-helpers.js](/src/js-app/handlebars-helpers.js) and the [/src/view/TodosCard.tmpl](/src/view/TodosCard.tmpl) for usage. 
 
@@ -125,17 +125,11 @@ Note that we have the state of the "Todo" element at the outter most element, wh
 .TodosCard{
     ...
         .todo-item{
-            &.todo-done{
+
+            &.todo-done{ /* here the ".todo-done" class will be in the Todo outermost DOM element */
                 .ctrl-check{
                     background-color: green;
-
-                    &::after{
-                        content:"";
-                        @mixin fitparent;
-                        border: solid 2px #fff;
-                        border-radius: 16px;
-                        margin: 3px;
-                    }
+                    ...
                 }
             }
         }
