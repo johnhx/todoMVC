@@ -15,9 +15,9 @@ d.register("TodosCard",{
 		view.newTodoIpt.focus();
 		
 		// --------- UI Debug --------- //
-		// create couple of task
-		// ds.create("Task",{subject:"test 1"});
-		// ds.create("Task",{subject:"test 2"});
+		// create couple of todo
+		// ds.create("Todo",{subject:"test 1"});
+		// ds.create("Todo",{subject:"test 2"});
 
 		// edit the first element
 		// setTimeout(function(){			
@@ -49,7 +49,7 @@ d.register("TodosCard",{
 			// press enter
 			if (evt.key === "Enter"){
 				var val = inputEl.value;
-				ds.create("Task",{subject: val}).then(function(){
+				ds.create("Todo",{subject: val}).then(function(){
 					inputEl.value = "";
 				});
 			}
@@ -70,24 +70,24 @@ d.register("TodosCard",{
 		// --------- todo-item UI Events --------- //
 		// toggle check status
 		"click; .ctrl-check": function(evt){
-			var entityRef = u.entityRef(evt.target, "Task");
+			var entityRef = u.entityRef(evt.target, "Todo");
 
 			// we toggle the done value (yes, from the UI state, as this is what the user intent)
-			var done = !entityRef.el.classList.contains("task-done");
+			var done = !entityRef.el.classList.contains("todo-done");
 
-			// we update the task vas the dataservice API. 
-			ds.update("Task",entityRef.id, {done:done});			
+			// we update the todo vas the dataservice API. 
+			ds.update("Todo",entityRef.id, {done:done});			
 		}, 
 
 		// double clicking on a label makes it editable
 		"dblclick; label": function(evt){			
-			editTodo.call(this, u.entityRef(evt.target, "Task"));
+			editTodo.call(this, u.entityRef(evt.target, "Todo"));
 		}, 
 
 		// when the todo-item input get focus out (we cancel by default)
 		"focusout; .todo-item input": function(evt){
 			var view = this;
-			var entityRef = u.entityRef(evt.target, "Task");
+			var entityRef = u.entityRef(evt.target, "Todo");
 
 			// IMPORTANT: Here we check if the entityEl state is editing, if not we do nothing. 
 			//            Ohterwise, we might do the remove inputEl twice with the blur event flow of this element.
@@ -100,7 +100,7 @@ d.register("TodosCard",{
 		"keyup; .todo-item input": function(evt){
 			var view = this;
 			var inputEl = evt.target;
-			var entityRef = u.entityRef(inputEl, "Task");
+			var entityRef = u.entityRef(inputEl, "Todo");
 
 			switch(evt.key){
 			case "Enter":
@@ -112,7 +112,7 @@ d.register("TodosCard",{
 					var entityEl = d.first(view.el, ".items .todo-item[data-entity-id='" + entityRef.id + "']");
 					var siblingTodoEl = (evt.shiftKey)?d.prev(entityEl,".todo-item"):d.next(entityEl,".todo-item");
 					if (siblingTodoEl){
-						var siblingTodoRef = u.entityRef(siblingTodoEl, "Task");	
+						var siblingTodoRef = u.entityRef(siblingTodoEl, "Todo");	
 						editTodo.call(this, siblingTodoRef);
 					}else{
 						// todo: need to focus on the first new-todo
@@ -128,7 +128,7 @@ d.register("TodosCard",{
 	}, 
 
 	hubEvents: {
-		"dsHub; Task": function(data,info){				
+		"dsHub; Todo": function(data,info){				
 			refreshList.call(this);
 		}
 	}
@@ -143,7 +143,7 @@ function commitEditing(entityRef){
 
 		// if the newSubject (in the input) is different, then, we update.
 		if (data.subject !== data.newSubject){
-			ds.update("Task", entityRef.id, {subject: data.newSubject}).then(function(){
+			ds.update("Todo", entityRef.id, {subject: data.newSubject}).then(function(){
 				// NOTE: no need to remove the editing state as the list will be rebuilt. 
 				resolve();	
 			});
@@ -193,8 +193,8 @@ function editTodo(entityRef){
 // private: refrensh the todo list of items
 function refreshList(){
 	var view = this;
-	ds.list("Task").then(function(tasks){
-		var html = render("TodosCard-todo-items",{items:tasks});
+	ds.list("Todo").then(function(todos){
+		var html = render("TodosCard-todo-items",{items:todos});
 		d.first(view.el,".items").innerHTML = html;
 	});	
 }

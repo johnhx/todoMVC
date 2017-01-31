@@ -36,19 +36,22 @@
 			flex-direction: row;
 
 			.ctrl-check{
-				position: relative;
+				position: absolute;
 				border: solid 1px #ddd;
 				width: 32px;
 				height: 32px;
-				border-radius: 16px;
+				border-radius: 32px;
 				margin: 15px;
+			}
+
+			label, input{
+				padding: 15px 60px 15px 64px;
 			}
 
 			label{
 				cursor: pointer;
 				width: 100%;
-				display: block;
-				padding: 15px 60px 15px 0px;
+				display: block;				
 			}
 
 			input{
@@ -59,7 +62,6 @@
 				font-family: inherit;
 				color: inherit;
 				border: none;
-				padding: 11px 60px 15px 0px;
 				outline: none;
 			}
 
@@ -68,7 +70,7 @@
 							 (i.e. at the .todo-item). Given the cascading nature of CSS, this allow to avoid 
 							 redundancy while allow sub elements to be styled approprietaly. 
 			*/ 
-			&.task-done{
+			&.todo-done{
 				.ctrl-check{
 					background-color: green;
 
